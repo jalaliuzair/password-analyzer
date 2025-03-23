@@ -1,3 +1,4 @@
+<script>
 const passwordInput = document.getElementById("password");
 const toggleButton = document.getElementById("togglePassword");
 const strengthText = document.getElementById("strength-text");
@@ -25,3 +26,4 @@ passwordInput.addEventListener("input", () => {
         strengthText.className = "medium";
     }
 });
+</script>
