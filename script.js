@@ -13,4 +13,3 @@ document.getElementById("password").addEventListener("input", function() {
         strengthText.className = "medium";
     }
 });
-
