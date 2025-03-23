@@ -4,7 +4,6 @@ body {
     margin: 50px;
     background-color: #f4f4f4;
 }
-
 .container {
     width: 300px;
     margin: auto;
@@ -13,21 +12,30 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.input-container {
+    display: flex;
+    align-items: center;
+}
 input {
-    width: 100%;
+    flex: 1;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
 }
-
+button {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    background: #007bff;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
 #strength {
     margin-top: 10px;
     font-weight: bold;
 }
-
 .weak { color: red; }
 .medium { color: orange; }
 .strong { color: green; }
-
