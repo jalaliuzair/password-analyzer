@@ -21,3 +21,5 @@ Python (Backend logic)
 GitHub Pages for hosting
 
 Developed by : jalaliuzair
+
+visit project here:  https://jalaliuzair.github.io/password-analyzer/
