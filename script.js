@@ -1,7 +1,19 @@
-document.getElementById("password").addEventListener("input", function() {
-    let password = this.value;
-    let strengthText = document.getElementById("strength-text");
+const passwordInput = document.getElementById("password");
+const toggleButton = document.getElementById("togglePassword");
+const strengthText = document.getElementById("strength-text");
 
+toggleButton.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleButton.textContent = "Hide";
+    } else {
+        passwordInput.type = "password";
+        toggleButton.textContent = "Show";
+    }
+});
+
+passwordInput.addEventListener("input", () => {
+    const password = passwordInput.value;
     if (password.length < 6) {
         strengthText.textContent = "Weak";
         strengthText.className = "weak";
