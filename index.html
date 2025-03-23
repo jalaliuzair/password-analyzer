@@ -4,29 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Password Strength Analyzer - Check your password strength and get recommendations.">
-    <meta name="author" content="jalaliuzair">
     <link rel="stylesheet" href="style.css">
     <title>Password Strength Analyzer</title>
 </head>
 <body>
     <div class="container">
-        <h1>Password Strength Analyzer</h1>
-        <p>Enter your password to check its strength and get recommendations.</p>
-        
-        <div class="input-container">
-            <input type="password" id="password" placeholder="Enter your password">
-            <button id="toggle-password">Show</button>
-        </div>
-
-        <div id="strength">Strength: <span id="strength-text">Weak</span></div>
-
-        <div id="recommendations">
-            <h3>Recommendations:</h3>
-            <ul id="recommendation-list"></ul>
+        <div class="analyzer-card">
+            <h1>Password Strength Analyzer</h1>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Enter your password">
+                <button id="togglePassword">Show</button>
+            </div>
+            <button onclick="analyzePassword()">Analyze</button>
+            <p id="strength">Strength: </p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePassword.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                togglePassword.textContent = 'Show';
+            }
+        });
+
+        function analyzePassword() {
+            const password = passwordInput.value;
+            const strengthText = document.getElementById('strength');
+            let strength = 'Weak';
+
+            if (password.length > 8 && /[A-Z]/.test(password) && /\d/.test(password) && /[!@#$%^&*]/.test(password)) {
+                strength = 'Strong';
+            } else if (password.length > 6) {
+                strength = 'Medium';
+            }
+            strengthText.textContent = `Strength: ${strength}`;
+        }
+    </script>
 </body>
 </html>
